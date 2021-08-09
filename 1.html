@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+{% assign cards         = site.static_files | where: 'is_card', true | reverse %}
+
+{% assign page_nb       = 1 %}
+{% assign item_per_page = 30 %}
+{% assign item_per_row  = 3 %}
+{% assign first_item    = item_per_page | times: page_nb %}
+{% assign last_item     = item_per_page | times: page_nb | plus: item_per_page | minus: 1 %}
+
+<div class="hcenter">
+	<a class ="shs" href="index.html"><</a>
+	<a class ="shs" href="2.html">></a>
+</div>
+
+<hr/>
+
+{% for i in (first_item .. last_item) %}
+	{% assign row_div = i | modulo: item_per_row | plus: 1 %}
+	{% assign card    = cards[i] %}
+	{% assign ext     = card.extname %}
+
+	{% if row_div == 1 %} <div class="row hcenter"> {% endif %}
+
+	{% if ext == ".png" or ext == ".jpg" %}
+		{% capture card_img_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
+		{% capture card_img_name %} {{ card.basename                     }} {% endcapture %}
+		{% include card_image.html %}
+
+	{% elsif ext == ".mp4" %}
+		{% capture card_vid_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
+		{% capture card_vid_name %} {{ card.basename                     }} {% endcapture %}
+		{% include card_video.html %}
+
+	{% else %}
+		{% include card_empty.html %}
+	{% endif %}
+
+	{% if row_div == item_per_row %} </div> {% endif %}
+
+{% endfor %}
+
+<hr/>
+
+<div class="hcenter">
+	<a class ="shs" href="index.html"><</a>
+	<a class ="shs" href="2.html">></a>
+</div>
