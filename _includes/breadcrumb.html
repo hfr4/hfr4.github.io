@@ -1,0 +1,27 @@
+{% assign page_nb   = page_nb | plus: 0 %}
+{% assign last_page = last_page | plus: 0 %}
+{% assign plus_one  = page_nb | plus: 1 %}
+{% assign minus_one = page_nb | minus: 1 %}
+
+{% if page_nb == last_page %}
+	<div class="hcenter">
+		<a class ="shs" href="{{minus_one}}.html"><</a>
+	</div>
+
+{% elsif page_nb == 0 %}
+	<div class="hcenter">
+		<a class ="shs" href="{{plus_one}}.html">></a>
+	</div>
+
+{% elsif page_nb == 1 %}
+	<div class="hcenter">
+		<a class ="shs" href="/"><</a>
+		<a class ="shs" href="{{plus_one}}.html">></a>
+	</div>
+
+{% else %}
+	<div class="hcenter">
+		<a class ="shs" href="{{minus_one}}.html"><</a>
+		<a class ="shs" href="{{plus_one}}.html">></a>
+	</div>
+{% endif %}
