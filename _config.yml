@@ -7,4 +7,3 @@ defaults:
       path: "assets/cards"
     values:
       is_card: true
-
