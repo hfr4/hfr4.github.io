@@ -1,7 +1,7 @@
-{% assign page_nb   = page_nb | plus: 0 %}
-{% assign last_page = last_page | plus: 0 %}
-{% assign plus_one  = page_nb | plus: 1 %}
-{% assign minus_one = page_nb | minus: 1 %}
+{% assign page_nb   = page_nb   | plus:  0 %}
+{% assign plus_one  = page_nb   | plus:  1 %}
+{% assign minus_one = page_nb   | minus: 1 %}
+{% assign last_page = last_page | plus:  0 %}
 
 {% if page_nb == last_page %}
 	<div class="hcenter">

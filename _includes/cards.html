@@ -1,9 +1,17 @@
-{% assign cards         = site.static_files | where: 'is_card', true | reverse %}
-{% assign item_per_row  = 3  %}
-{% assign item_per_page = 30 %}
-{% assign first_item    = item_per_page | times: page_nb %}
-{% assign last_item     = item_per_page | times: page_nb | plus: item_per_page | minus: 1 %}
-{% assign last_page     = 11 %}
+<!-- GLOBAL VARIABLES -->
+{% assign cards                  = site.static_files | where: 'is_card', true | reverse %}
+{% assign cards_total            = cards.size %}
+{% assign cards_per_row          = 3  %}
+{% assign cards_per_page         = 30 %}
+{% assign last_page              = cards_total | divided_by: cards_per_page %}
+{% assign last_card_idx          = cards_total | minus: 1 %}
+
+<!-- PAGE VARIABLES -->
+{% assign first_card_idx_on_page = cards_per_page | times: page_nb %}
+{% assign last_card_idx_on_page  = cards_per_page | times: page_nb | plus: cards_per_page | minus: 1 %}
+{% if last_card_idx_on_page > cards_total %} {% assign last_card_idx_on_page = cards_total | minus: 1 %} {% endif %}
+{% assign cards_nb_on_page       = last_card_idx_on_page | minus: first_card_idx_on_page | plus: 1  %}
+{% assign rows_nb_on_page        = cards_nb_on_page | times: 1.0 | divided_by: cards_per_row | ceil %}
 
 
 {% capture page_nb   %} {{ page_nb   }} {% endcapture %}
@@ -12,29 +20,32 @@
 
 <hr/>
 
-{% for i in (first_item .. last_item) %}
-	{% assign row_div = i | modulo: item_per_row | plus: 1 %}
-	{% assign card    = cards[i] %}
-	{% assign ext     = card.extname %}
+{% for i in (1 .. rows_nb_on_page) %}
+	<div class="row hcenter">
 
-	{% if row_div == 1 %} <div class="row hcenter"> {% endif %}
+		{% for j in (1 .. cards_per_row) %}
 
-		{% if ext == ".png" or ext == ".jpg" %}
-			{% capture card_img_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
-			{% capture card_img_name %} {{ card.basename                     }} {% endcapture %}
-			{% include card_image.html %}
+			{% assign card_idx = i | minus: 1 | times: cards_per_row | plus: j | minus: 1 | plus: first_card_idx_on_page %}
+			{% assign card     = cards[card_idx] %}
+			{% assign ext      = card.extname %}
 
-		{% elsif ext == ".mp4" %}
-			{% capture card_vid_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
-			{% capture card_vid_name %} {{ card.basename                     }} {% endcapture %}
-			{% include card_video.html %}
+			{% if ext == ".png" or ext == ".jpg" %}
+				{% capture card_img_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
+				{% capture card_img_name %} {{ card.basename                     }} {% endcapture %}
+				{% include card_image.html %}
 
-		{% else %}
-			{% include card_empty.html %}
-		{% endif %}
+			{% elsif ext == ".mp4" %}
+				{% capture card_vid_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
+				{% capture card_vid_name %} {{ card.basename                     }} {% endcapture %}
+				{% include card_video.html %}
 
-	{% if row_div == item_per_row %} </div> {% endif %}
+			{% else %}
+				{% include card_empty.html %}
+			{% endif %}
 
+		{% endfor %}
+
+	</div>
 {% endfor %}
 
 <hr/>
