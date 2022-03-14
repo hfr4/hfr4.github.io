@@ -29,7 +29,7 @@
 			{% assign card     = cards[card_idx] %}
 			{% assign ext      = card.extname %}
 
-			{% if ext == ".png" or ext == ".jpg" %}
+			{% if ext == ".png" or ext == ".jpg" or ext == ".gif" %}
 				{% capture card_img_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
 				{% capture card_img_name %} {{ card.basename                     }} {% endcapture %}
 				{% include card_image.html %}
