@@ -1,6 +1,5 @@
 * {
-	font-family     : 'Courier New', Courier, monospace;
-	color           : white;
+	font-family: 'Courier New', Courier, monospace;
 }
 
 body {
@@ -12,10 +11,15 @@ body {
 .dropdown_select {
 	background: rgb(0, 0, 0);
 	border    : white solid 1px;
+	color     : white;
 }
 
 .disabled_arrow {
 	color: grey;
+}
+
+.active_arrow {
+	color: white;
 }
 
 .card {
@@ -32,7 +36,7 @@ body {
 }
 
 .card_header {
-	background: rgb(0, 61, 102);
+	background: rgba(64,9,33,1);
 	position  : absolute;
 	width     : inherit;
 	height    : 30px;
@@ -68,6 +72,8 @@ body {
 	background  : transparent; 
 	padding-left: 10px; 
 	padding-top : 5px;
+	color       : white;   
+	font-size   : large;
 }
 
 .card_empty {
