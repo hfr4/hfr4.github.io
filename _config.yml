@@ -7,3 +7,8 @@ defaults:
       path: "assets/cards"
     values:
       is_card: true
+
+webrick:
+  headers:
+    Cross-Origin-Opener-Policy: same-origin
+    Cross-Origin-Embedder-Policy: require-corp
