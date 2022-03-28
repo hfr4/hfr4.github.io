@@ -3,6 +3,6 @@
 
 <select class="dropdown_select" onChange="window.location.href=this.value" name="page_selection">
 	{% for i in (0 .. last_page) %}
-		<option {% if i == 0 %} value="index.html" {% else %} value="{{ i }}.html" {% endif %} {% if page_nb == i %} selected {% endif %} > {{ i }} </option>
+		<option {% if i == 0 %} value="/" {% else %} value="/cards/{{ i }}" {% endif %} {% if page_nb == i %} selected {% endif %} > {{ i }} </option>
 	{% endfor %}
 </select>	  

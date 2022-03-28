@@ -5,7 +5,7 @@
 
 {% if page_nb == last_page %}
 	<div class="hcenter">
-		<a class ="shs active_arrow" href="{{minus_one}}.html"><</a>
+		<a class ="shs active_arrow" href="/cards/{{minus_one}}"><</a>
 		{% capture page_nb   %} {{ page_nb   }} {% endcapture %}
 		{% capture last_page %} {{ last_page }} {% endcapture %}
 		{% include dropdown.html %}
@@ -18,7 +18,7 @@
 		{% capture page_nb   %} {{ page_nb   }} {% endcapture %}
 		{% capture last_page %} {{ last_page }} {% endcapture %}
 		{% include dropdown.html %}
-		<a class ="shs active_arrow" href="{{plus_one}}.html">></a>
+		<a class ="shs active_arrow" href="/cards/{{plus_one}}">></a>
 	</div>
 
 {% elsif page_nb == 1 %}
@@ -27,15 +27,15 @@
 		{% capture page_nb   %} {{ page_nb   }} {% endcapture %}
 		{% capture last_page %} {{ last_page }} {% endcapture %}
 		{% include dropdown.html %}
-		<a class ="shs active_arrow" href="{{plus_one}}.html">></a>
+		<a class ="shs active_arrow" href="/cards/{{plus_one}}">></a>
 	</div>
 
 {% else %}
 	<div class="hcenter">
-		<a class ="shs active_arrow" href="{{minus_one}}.html"><</a>
+		<a class ="shs active_arrow" href="/cards/{{minus_one}}"><</a>
 		{% capture page_nb   %} {{ page_nb   }} {% endcapture %}
 		{% capture last_page %} {{ last_page }} {% endcapture %}
 		{% include dropdown.html %}
-		<a class ="shs active_arrow" href="{{plus_one}}.html">></a>
+		<a class ="shs active_arrow" href="/cards/{{plus_one}}">></a>
 	</div>
 {% endif %}

@@ -8,6 +8,11 @@ defaults:
     values:
       is_card: true
 
+  - scope:
+      path: "assets/games"
+    values:
+      is_game: true
+
 webrick:
   headers:
     Cross-Origin-Opener-Policy: same-origin

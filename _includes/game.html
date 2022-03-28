@@ -1,0 +1,18 @@
+{% assign trim_size = game_name | size | minus: 6 %}
+{% assign trimmed   = game_name | slice: 0, trim_size %}
+
+<a href="/games">return</a>
+
+<h3 class="hcenter"> {{ trimmed }} </h3>
+
+<hr/>
+
+<canvas id="loading_canvas" oncontextmenu="event.preventDefault()" width=500 height=300></canvas>
+<canvas id="canvas"         oncontextmenu="event.preventDefault()"></canvas>
+
+<hr/>
+
+<button class="fullscreen_button" onclick="go_full_screen();"> Fullscreen</button>
+
+<script       type="text/javascript" src="../assets/js/game.js" PACKAGE_NAME="{{ game_name }}" ></script>
+<script async type="text/javascript" src="../assets/js/love.js" onload="Love(Module)"></script>

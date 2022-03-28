@@ -2,16 +2,19 @@
 layout: default
 ---
 
-<h2 class="hcenter"> test </h2>
+{% assign games = site.static_files | where: 'is_game', true %}
+
+<a href="/"> return </a>
 
 <hr/>
 
-<canvas id="loading_canvas" oncontextmenu="event.preventDefault()" width=500 height=300></canvas>
-<canvas id="canvas"         oncontextmenu="event.preventDefault()"></canvas>
+{% for game in games %}
+	{% assign trim_size = game.name | size | minus: 5 %}
+	{% assign trimmed   = game.name | slice: 0, trim_size %}
+
+	<div class="row">
+		<a href="/games/{{ trimmed }}">{{ trimmed }}</a>
+	</div>
+{% endfor %}
 
 <hr/>
-
-<button class="fullscreen_button" onclick="go_full_screen();"> Fullscreen</button>
-
-<script type="text/javascript" src="assets/js/game.js"></script>
-<script async type="text/javascript" src="assets/js/love.js" onload="Love(Module)"></script>
