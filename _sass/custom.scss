@@ -28,6 +28,10 @@ body {
 	height    : 300px;
 	min-width : 300px; 
 	min-height: 300px;
+
+	&.empty {
+		background: rgba(0, 0, 0, 0); 
+	}
 }
 
 .card_header {
@@ -65,15 +69,6 @@ body {
 	padding-top : 5px;
 	color       : white;   
 	font-size   : large;
-}
-
-.card_empty {
-	background: rgba(0, 0, 0, 0); 
-	position  : relative;
-	width     : 300px; 
-	height    : 300px;
-	min-width : 300px; 
-	min-height: 300px;
 }
 
 /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
