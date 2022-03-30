@@ -71,21 +71,20 @@ body {
 	font-size   : large;
 }
 
-/* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+.canvas_container {
+	display: flex;
+	justify-content: center;
+}
+
 #canvas {
-	margin-right : auto; 
-	margin-left  : auto; 
-	display      : block;
 	padding-right: 0;
-	display      : display;
 	border       : 0px none;
-	visibility   : hidden;
+	// visibility   : hidden;
+	display      : none;
 }
 
 #loading_canvas {
-	margin-right: auto; 
-	margin-left : auto; 
-	display     : block;
+	display: display;
 }
 
 #fullscreen_button {
