@@ -1,17 +1,12 @@
 <!-- GLOBAL VARIABLES -->
-{% assign cards                  = site.static_files | where: 'is_card', true | reverse %}
-{% assign cards_total            = cards.size %}
-{% assign cards_per_row          = 3  %}
-{% assign cards_per_page         = 30 %}
-{% assign last_page              = cards_total | divided_by: cards_per_page %}
-{% assign last_card_idx          = cards_total | minus: 1 %}
+{% assign cards          = site.static_files | where: 'is_card', true | reverse %}
+{% assign cards_total    = cards.size %}
+{% assign cards_per_page = 30 %}
+{% assign last_page      = cards_total | divided_by: cards_per_page %}
 
 <!-- PAGE VARIABLES -->
-{% assign first_card_idx_on_page = cards_per_page | times: page_nb %}
-{% assign last_card_idx_on_page  = cards_per_page | times: page_nb | plus: cards_per_page | minus: 1 %}
-{% if last_card_idx_on_page > cards_total %} {% assign last_card_idx_on_page = cards_total | minus: 1 %} {% endif %}
-{% assign cards_nb_on_page       = last_card_idx_on_page | minus: first_card_idx_on_page | plus: 1  %}
-{% assign rows_nb_on_page        = cards_nb_on_page | times: 1.0 | divided_by: cards_per_row | ceil %}
+{% assign first_card_idx = page_nb | times: cards_per_page  %}
+{% assign last_card_idx  = page_nb | plus: 1 | times: cards_per_page | minus: 1  %}
 
 
 {% capture page_nb   %} {{ page_nb   }} {% endcapture %}
@@ -20,41 +15,36 @@
 
 <hr/>
 
-{% for i in (1 .. rows_nb_on_page) %}
-	<div class="row hcenter">
+<div class="hcenter cards_container">
 
-		{% for j in (1 .. cards_per_row) %}
+	{% for i in ( first_card_idx .. last_card_idx ) %}
+		{% assign card = cards[i] %}
+		{% assign ext  = card.extname %}
 
-			{% assign card_idx = i | minus: 1 | times: cards_per_row | plus: j | minus: 1 | plus: first_card_idx_on_page %}
-			{% assign card     = cards[card_idx] %}
-			{% assign ext      = card.extname %}
+		{% if ext == ".png" or ext == ".jpg" or ext == ".gif" %}
+			{% capture card_img_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
+			{% capture card_img_name %} {{ card.basename                     }} {% endcapture %}
+			{% include card_image.html %}
 
-			{% if ext == ".png" or ext == ".jpg" or ext == ".gif" %}
-				{% capture card_img_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
-				{% capture card_img_name %} {{ card.basename                     }} {% endcapture %}
-				{% include card_image.html %}
+		{% elsif ext == ".mp4" %}
+			{% capture card_vid_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
+			{% capture card_vid_name %} {{ card.basename                     }} {% endcapture %}
+			{% include card_video.html %}
+		{% endif %}
+	{% endfor %}
 
-			{% elsif ext == ".mp4" %}
-				{% capture card_vid_src  %} {{ card.path | prepend: site.baseurl }} {% endcapture %}
-				{% capture card_vid_name %} {{ card.basename                     }} {% endcapture %}
-				{% include card_video.html %}
-
-			{% else %}
-				{% include card_empty.html %}
-			{% endif %}
-
-		{% endfor %}
-
-	</div>
-{% endfor %}
-
-<hr/>
-
-{% capture page_nb   %} {{ page_nb   }} {% endcapture %}
-{% capture last_page %} {{ last_page }} {% endcapture %}
-{% include breadcrumb.html %}
-
-<div id="gallery_modal" onclick="close_gallery()">
-	<img id="gallery_img">
 </div>
+
+<hr/>
+
+{% capture page_nb   %} {{ page_nb   }} {% endcapture %}
+{% capture last_page %} {{ last_page }} {% endcapture %}
+{% include breadcrumb.html %}
+
+<div id="gallery_modal" class="hcenter vcenter" onclick="close_gallery()">
+	<div class="hcenter vcenter shs svs">
+		<img id="gallery_img">
+	</div>
+</div>
+
 <script type="text/javascript" src="../assets/js/gallery.js"></script>

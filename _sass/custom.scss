@@ -1,3 +1,7 @@
+$breakpoint-desktop: "only screen and (min-width : 1200px)";
+$breakpoint-laptop : "only screen and (max-width : 1200px)";
+$breakpoint-mobile : "only screen and (max-width : 800px)";
+
 * {
 	font-family: 'Courier New', Courier, monospace;
 	color: white;
@@ -22,16 +26,24 @@ body {
 	color: white;
 }
 
+.cards_container {
+	display              : grid;
+	grid-template-columns: repeat(3, auto);
+
+	@media #{$breakpoint-laptop} {
+		grid-template-columns: repeat(2, auto);
+	}
+	@media #{$breakpoint-mobile} {
+		grid-template-columns: repeat(1, auto);
+	}
+}
+
 .card {
 	position  : relative;
 	width     : 300px; 
 	height    : 300px;
 	min-width : 300px; 
 	min-height: 300px;
-
-	&.empty {
-		background: rgba(0, 0, 0, 0); 
-	}
 }
 
 .card_header {
@@ -79,7 +91,6 @@ body {
 #canvas {
 	padding-right: 0;
 	border       : 0px none;
-	// visibility   : hidden;
 	display      : none;
 }
 
@@ -94,10 +105,6 @@ body {
 #gallery_modal {
 	background-color: rgba(10,10,10,0.85);
 
-	display        : flex;
-	justify-content: center;
-	align-items    : center;
-
 	position: fixed;
 	top     : 0;
 	left    : 0;
@@ -105,7 +112,6 @@ body {
 	height  : 100%;
 	
 	transition        : 0.3s ease;
-	-webKit-transition: 0.3s ease;
 	visibility        : hidden;
 	opacity           : 0;
 

@@ -13,8 +13,6 @@ window.onerror = () => draw_text_on_loading_canvas("Error");
 
 draw_text_on_loading_canvas("Initializing...");
 
-// FUNCTIONS
-
 function go_full_screen(){
 	var c = document.getElementById("canvas");
 	if     (c.requestFullScreen)       c.requestFullScreen();
@@ -33,21 +31,26 @@ function draw_text_on_loading_canvas(text) {
 }
 
 function load_game() {
-	draw_text_on_loading_canvas("Downloading...");
-	
-	Module.addRunDependency("rd_" + PACKAGE_NAME);
+	Module.addRunDependency("/");
 
 	var req = new XMLHttpRequest();
 	req.open("GET", PACKAGE_FOLDER + PACKAGE_NAME, true);
 	req.responseType = "arraybuffer";
-	req.onload       = (e) => {
-		var byte_array = new Uint8Array(e.target.response);
-		
-		Module.FS_createDataFile(PACKAGE_NAME, null, byte_array, true, true, true);
-		Module.removeRunDependency("rd_" + PACKAGE_NAME);
 
-		document.getElementById("canvas").style.display         = "unset";
-		document.getElementById("loading_canvas").style.display = "none";
+	req.onprogress   = (e) => {
+		draw_text_on_loading_canvas(`Downloading: ${e.loaded} / ${e.total}`);
+	};
+	req.onloadend    = (e) => {
+		draw_text_on_loading_canvas("Loading game...");
+		
+		setTimeout(() => {
+			var byte_array = new Uint8Array(e.target.response);
+			Module.FS_createDataFile(PACKAGE_NAME, null, byte_array, true, true, true);
+			Module.removeRunDependency("/");
+	
+			document.getElementById("canvas").style.display         = "unset";
+			document.getElementById("loading_canvas").style.display = "none";
+		}, 500);
 	};
 	req.send();
 }
