@@ -134,8 +134,6 @@ table {
 .row {
   display: flex;
   flex-flow: row;
-  div:not(:only-of-type):first-child { margin-left: 0}
-  div:not(:only-of-type):last-child { margin-right: 0}
 }
 
 .column {

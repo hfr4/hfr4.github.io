@@ -41,9 +41,17 @@
 {% capture last_page %} {{ last_page }} {% endcapture %}
 {% include breadcrumb.html %}
 
-<div id="gallery_modal" class="hcenter vcenter" onclick="close_gallery()">
-	<div class="hcenter vcenter shs svs">
-		<img id="gallery_img">
+<div class="hcenter vcenter" id="gallery_img_modal" onclick="close_gallery_img()">
+	<div class="hcenter vcenter shs svs" id="gallery_img_div">
+		<img id="gallery_img_img">
+	</div>
+</div>
+
+<div class="hcenter vcenter" id="gallery_vid_modal" onclick="close_gallery_vid()">
+	<div class="hcenter vcenter shs svs" id="gallery_vid_div" >
+        <video id="gallery_vid_video" poster="" preload="metadata" controls>
+			<source id="gallery_vid_source" src="" type="video/mp4">
+		</video>
 	</div>
 </div>
 

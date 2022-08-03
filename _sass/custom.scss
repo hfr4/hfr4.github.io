@@ -69,10 +69,22 @@ body {
 	margin    : auto;
 }
 
+.card_video_svg {
+    position: absolute; 
+    right   : 0; 
+    left    : 0; 
+    top     : 0; 
+    bottom  : 0; 
+    margin  : auto;
+    width   : 100px; 
+    height  : 100px; 
+}
+
 .card_video {
-	width     : 100%; 
-	height    : 100%;
-	background: inherit;
+	width         : 100%; 
+	height        : 100%;
+	background    : inherit;
+    pointer-events: none;
 }
 
 .card_title {
@@ -102,7 +114,7 @@ body {
 	color:black
 }
 
-#gallery_modal {
+#gallery_img_modal {
 	background-color: rgba(10,10,10,0.85);
 
 	position: fixed;
@@ -121,7 +133,41 @@ body {
 	}
 }
 
-#gallery_img {
+#gallery_img_div {
+    width: 100%;
+    height: 100%;
+}
+
+#gallery_img_img {
+	max-width : 95%;
+	max-height: 95%;
+}
+
+#gallery_vid_modal {
+	background-color: rgba(10,10,10,0.85);
+
+	position: fixed;
+	top     : 0;
+	left    : 0;
+	width   : 100%;
+	height  : 100%;
+	
+	transition        : 0.3s ease;
+	visibility        : hidden;
+	opacity           : 0;
+
+	&.visible {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+#gallery_vid_div {
+    width: 100%;
+    height: 100%;
+}
+
+#gallery_vid_video {
 	max-width : 95%;
 	max-height: 95%;
 }
