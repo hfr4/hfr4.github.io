@@ -1,6 +1,493 @@
----
-layout: default
----
-
-{% capture page_nb %} {{ 0 }} {% endcapture %}
-{% include cards.html %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>hfr4 website</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
+        <link rel="stylesheet" href="./assets/css/elk.min.css"/>
+        <link rel="stylesheet" href="./assets/css/style.css"/>
+    </head>
+    <body>
+        <div class="row mhs mvs">
+            <div class="col-3"></div>
+            <div class="col-6">
+    <nav>
+        <a href="./index.html">index</a>
+    </nav>
+<div class="hcenter">
+    <a class ="shs inactive_arrow"><</a>
+<select class="dropdown_select" onChange="window.location.href=this.value" name="page_selection">
+    <option value="./index.html" selected > 1 </option>
+    <option value="./2.html"  > 2 </option>
+    <option value="./3.html"  > 3 </option>
+    <option value="./4.html"  > 4 </option>
+    <option value="./5.html"  > 5 </option>
+    <option value="./6.html"  > 6 </option>
+    <option value="./7.html"  > 7 </option>
+    <option value="./8.html"  > 8 </option>
+    <option value="./9.html"  > 9 </option>
+    <option value="./10.html"  > 10 </option>
+    <option value="./11.html"  > 11 </option>
+    <option value="./12.html"  > 12 </option>
+    <option value="./13.html"  > 13 </option>
+    <option value="./14.html"  > 14 </option>
+</select>
+    <a class ="shs active_arrow" href="./2.html">></a>
+</div>
+<hr/>
+<div class="hcenter cards_container">
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240608</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240608.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240608.mp4 preload=metadata>
+                <source src="./assets/cards/240608.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240519</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240519.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240519.mp4 preload=metadata>
+                <source src="./assets/cards/240519.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240512</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240512.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240512.mp4 preload=metadata>
+                <source src="./assets/cards/240512.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240508</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240508.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240508.mp4 preload=metadata>
+                <source src="./assets/cards/240508.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240506</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240506.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240506.mp4 preload=metadata>
+                <source src="./assets/cards/240506.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240312</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240312.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240312.mp4 preload=metadata>
+                <source src="./assets/cards/240312.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240303</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240303.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240303.mp4 preload=metadata>
+                <source src="./assets/cards/240303.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240224</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240224.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240224.mp4 preload=metadata>
+                <source src="./assets/cards/240224.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240221</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240221.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240221.mp4 preload=metadata>
+                <source src="./assets/cards/240221.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">240115</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/240115.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/240115.mp4 preload=metadata>
+                <source src="./assets/cards/240115.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230922</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230922.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230922.mp4 preload=metadata>
+                <source src="./assets/cards/230922.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230919</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230919.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230919.mp4 preload=metadata>
+                <source src="./assets/cards/230919.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230911</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230911.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230911.mp4 preload=metadata>
+                <source src="./assets/cards/230911.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230910</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230910.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230910.mp4 preload=metadata>
+                <source src="./assets/cards/230910.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230909</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230909.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230909.mp4 preload=metadata>
+                <source src="./assets/cards/230909.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230908</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230908.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230908.mp4 preload=metadata>
+                <source src="./assets/cards/230908.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230907</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230907.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230907.mp4 preload=metadata>
+                <source src="./assets/cards/230907.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230831</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230831.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230831.mp4 preload=metadata>
+                <source src="./assets/cards/230831.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230827</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230827.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230827.mp4 preload=metadata>
+                <source src="./assets/cards/230827.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230825</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230825.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230825.mp4 preload=metadata>
+                <source src="./assets/cards/230825.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230819</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230819.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230819.mp4 preload=metadata>
+                <source src="./assets/cards/230819.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230803</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230803.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230803.mp4 preload=metadata>
+                <source src="./assets/cards/230803.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230801</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230801.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230801.mp4 preload=metadata>
+                <source src="./assets/cards/230801.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230725</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230725.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230725.mp4 preload=metadata>
+                <source src="./assets/cards/230725.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230711</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230711.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230711.mp4 preload=metadata>
+                <source src="./assets/cards/230711.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230710</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230710.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230710.mp4 preload=metadata>
+                <source src="./assets/cards/230710.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header"> 
+            <div class="card_title">230626</div>
+        </div>
+        <div class="card_body" onclick="open_gallery_img('./assets/cards/230626.gif')">
+            <img class="card_img" src="./assets/cards/230626.gif"/>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230611</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230611.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230611.mp4 preload=metadata>
+                <source src="./assets/cards/230611.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230605</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230605.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230605.mp4 preload=metadata>
+                <source src="./assets/cards/230605.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">230529</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/230529.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/230529.mp4 preload=metadata>
+                <source src="./assets/cards/230529.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="hcenter">
+    <a class ="shs inactive_arrow"><</a>
+<select class="dropdown_select" onChange="window.location.href=this.value" name="page_selection">
+    <option value="./index.html" selected > 1 </option>
+    <option value="./2.html"  > 2 </option>
+    <option value="./3.html"  > 3 </option>
+    <option value="./4.html"  > 4 </option>
+    <option value="./5.html"  > 5 </option>
+    <option value="./6.html"  > 6 </option>
+    <option value="./7.html"  > 7 </option>
+    <option value="./8.html"  > 8 </option>
+    <option value="./9.html"  > 9 </option>
+    <option value="./10.html"  > 10 </option>
+    <option value="./11.html"  > 11 </option>
+    <option value="./12.html"  > 12 </option>
+    <option value="./13.html"  > 13 </option>
+    <option value="./14.html"  > 14 </option>
+</select>
+    <a class ="shs active_arrow" href="./2.html">></a>
+</div>
+    <div class="hcenter vcenter" id="gallery_img_modal" onclick="close_gallery_img()">
+        <div class="hcenter vcenter shs svs" id="gallery_img_div">
+            <img id="gallery_img_img">
+        </div>
+    </div>
+    <div class="hcenter vcenter" id="gallery_vid_modal" onclick="close_gallery_vid()">
+        <div class="hcenter vcenter shs svs" id="gallery_vid_div" >
+            <video id="gallery_vid_video" poster="" preload="metadata" controls>
+                <source id="gallery_vid_source" src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <script type="text/javascript" src="./assets/js/gallery.js"></script>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </body>
+</html>
