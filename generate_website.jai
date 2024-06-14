@@ -89,6 +89,20 @@ main :: () {
         if it == 1 write_entire_file(tprint("%/index.html", OUTPUT_DIRECTORY)    , *builder);
         else       write_entire_file(tprint("%/%.html"    , OUTPUT_DIRECTORY, it), *builder);
     }
+
+    builder: String_Builder;
+    print_to_builder(*builder, "<!DOCTYPE html>\n");
+    print_to_builder(*builder, "<html>\n");
+    print_to_builder(*builder, HEAD);
+    print_to_builder(*builder, BODY_BEFORE_CONTENT);
+    print_to_builder(*builder, NAV);
+    print_to_builder(*builder, "<hr/>\n");
+    print_to_builder(*builder, "<p class=\"hcenter\">404</p>\n");
+    print_to_builder(*builder, "<hr/>\n");
+    print_to_builder(*builder, BODY_AFTER_CONTENT);
+    print_to_builder(*builder, "</html>\n");
+
+    write_entire_file(tprint("%/404.html", OUTPUT_DIRECTORY), *builder);
 }
 
 generate_dropdown :: (page_index: int) -> string {
