@@ -13,8 +13,8 @@ OUTPUT\_DIRECTORY :: "./";
 CARDS_PER_PAGE    :: 30;
 
 main :: () {
-    CARDS_PATHS := quick_sort(file_list(CARDS_DIRECTORY), (a, b) => compare_strings(b, a));
-    PAGES_COUNT := (CARDS_PATHS.count / CARDS_PER_PAGE) + 1;
+    cards_paths := quick_sort(file_list(CARDS_DIRECTORY), (a, b) => compare_strings(b, a));
+    pages_count := (cards_paths.count / CARDS_PER_PAGE) + 1;
 
     HEAD :: #string HTML
     <head>
@@ -69,18 +69,18 @@ main :: () {
     <script type="text/javascript" src="./assets/js/gallery.js"></script>
     HTML
 
-    for 1..PAGES_COUNT {
+    for 1..pages_count {
         builder: String_Builder;
         print_to_builder(*builder, "<!DOCTYPE html>\n");
         print_to_builder(*builder, "<html>\n");
         print_to_builder(*builder, HEAD);
         print_to_builder(*builder, BODY_BEFORE_CONTENT);
         print_to_builder(*builder, NAV);
-        print_to_builder(*builder, generate_breadcrumb(it, PAGES_COUNT));
+        print_to_builder(*builder, generate_breadcrumb(it, pages_count));
         print_to_builder(*builder, "<hr/>\n");
-        print_to_builder(*builder, generate_cards(it, CARDS_PATHS));
+        print_to_builder(*builder, generate_cards(it, cards_paths));
         print_to_builder(*builder, "<hr/>\n");
-        print_to_builder(*builder, generate_breadcrumb(it, PAGES_COUNT));
+        print_to_builder(*builder, generate_breadcrumb(it, pages_count));
         print_to_builder(*builder, IMAGE_MODAL);
         print_to_builder(*builder, VIDEO_MODAL);
         print_to_builder(*builder, GALLERY_SCRIPT);
