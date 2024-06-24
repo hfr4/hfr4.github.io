@@ -11,10 +11,11 @@ IMAGES\_DIRECTORY :: "assets/img";
 OUTPUT\_DIRECTORY :: "./";
 
 CARDS_PER_PAGE    :: 30;
-CARDS_PATHS       :: #run quick_sort(file_list(CARDS_DIRECTORY), (a, b) => compare_strings(b, a));
-PAGES_COUNT       :: #run (CARDS_PATHS.count / CARDS_PER_PAGE) + 1;
 
 main :: () {
+    CARDS_PATHS := quick_sort(file_list(CARDS_DIRECTORY), (a, b) => compare_strings(b, a));
+    PAGES_COUNT := (CARDS_PATHS.count / CARDS_PER_PAGE) + 1;
+
     HEAD :: #string HTML
     <head>
         <title>hfr4 website</title>
@@ -75,11 +76,11 @@ main :: () {
         print_to_builder(*builder, HEAD);
         print_to_builder(*builder, BODY_BEFORE_CONTENT);
         print_to_builder(*builder, NAV);
-        print_to_builder(*builder, generate_breadcrumb(it));
+        print_to_builder(*builder, generate_breadcrumb(it, PAGES_COUNT));
         print_to_builder(*builder, "<hr/>\n");
-        print_to_builder(*builder, generate_cards(it));
+        print_to_builder(*builder, generate_cards(it, CARDS_PATHS));
         print_to_builder(*builder, "<hr/>\n");
-        print_to_builder(*builder, generate_breadcrumb(it));
+        print_to_builder(*builder, generate_breadcrumb(it, PAGES_COUNT));
         print_to_builder(*builder, IMAGE_MODAL);
         print_to_builder(*builder, VIDEO_MODAL);
         print_to_builder(*builder, GALLERY_SCRIPT);
@@ -105,7 +106,7 @@ main :: () {
     write_entire_file(tprint("%/404.html", OUTPUT_DIRECTORY), *builder);
 }
 
-generate_dropdown :: (page_index: int) -> string {
+generate_dropdown :: (page_index: int, pages_count: int) -> string {
     builder: String_Builder;
 
     print_to_builder(*builder, "<select class=\"dropdown_select\" onChange=\"window.location.href=this.value\" name=\"page_selection\">\n");
@@ -114,7 +115,7 @@ generate_dropdown :: (page_index: int) -> string {
     <option value="%" % > % </option>
     HTML
 
-    for i: 1..PAGES_COUNT {
+    for i: 1..pages_count {
         value    := ifx i == 1 then "./index.html" else tprint("./%.html", i);
         selected := ifx page_index == i then "selected" else "";
         print_to_builder(*builder, OPTION, value, selected, i);
@@ -125,7 +126,7 @@ generate_dropdown :: (page_index: int) -> string {
     return builder_to_string(*builder);
 }
 
-generate_breadcrumb :: (page_index: int) -> string {
+generate_breadcrumb :: (page_index: int, pages_count: int) -> string {
     builder: String_Builder;
 
     print_to_builder(*builder, "<div class=\"hcenter\">\n");
@@ -138,21 +139,21 @@ generate_breadcrumb :: (page_index: int) -> string {
     <a class ="shs inactive_arrow">%</a>
     HTML
 
-    if page_index == PAGES_COUNT {
+    if page_index == pages_count {
         print_to_builder(*builder, ACTIVE_ARROW, page_index - 1, "<");
-        print_to_builder(*builder, generate_dropdown(page_index));
+        print_to_builder(*builder, generate_dropdown(page_index, pages_count));
         print_to_builder(*builder, INACTIVE_ARROW, ">");
     } else if page_index == 1 {
         print_to_builder(*builder, INACTIVE_ARROW, "<");
-        print_to_builder(*builder, generate_dropdown(page_index));
+        print_to_builder(*builder, generate_dropdown(page_index, pages_count));
         print_to_builder(*builder, ACTIVE_ARROW, page_index + 1, ">");
     } else if page_index == 2 {
         print_to_builder(*builder, ACTIVE_ARROW, "index", "<");
-        print_to_builder(*builder, generate_dropdown(page_index));
+        print_to_builder(*builder, generate_dropdown(page_index, pages_count));
         print_to_builder(*builder, ACTIVE_ARROW, page_index + 1, ">");
     } else {
         print_to_builder(*builder, ACTIVE_ARROW, page_index - 1, "<");
-        print_to_builder(*builder, generate_dropdown(page_index));
+        print_to_builder(*builder, generate_dropdown(page_index, pages_count));
         print_to_builder(*builder, ACTIVE_ARROW, page_index + 1, ">");
     }
 
@@ -161,7 +162,7 @@ generate_breadcrumb :: (page_index: int) -> string {
     return builder_to_string(*builder);
 }
 
-generate_cards :: (page_index: int) -> string {
+generate_cards :: (page_index: int, cards_paths: [] string) -> string {
     builder: String_Builder;
 
     print_to_builder(*builder, "<div class=\"hcenter cards_container\">\n");
@@ -170,9 +171,9 @@ generate_cards :: (page_index: int) -> string {
     last_path_index  := first_path_index + CARDS_PER_PAGE - 1;
 
     for first_path_index..last_path_index {
-        if it >= CARDS_PATHS.count break;
+        if it >= cards_paths.count break;
 
-        path      := CARDS_PATHS[it];
+        path      := cards_paths[it];
         extension := path_extension(path);
 
         if extension == {

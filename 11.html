@@ -38,6 +38,20 @@
 <hr/>
 <div class="hcenter cards_container">
     <div class="card svs shs">
+        <div class="card_header">
+            <div class="card_title">200823</div>
+        </div>
+        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/200823.mp4')">
+            <svg class="card_video_svg">
+                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
+                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
+            </svg>
+            <video class="card_video" poster=assets/cards/200823.mp4 preload=metadata>
+                <source src="./assets/cards/200823.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="card svs shs">
         <div class="card_header"> 
             <div class="card_title">200814</div>
         </div>
@@ -291,20 +305,6 @@
         </div>
         <div class="card_body" onclick="open_gallery_img('./assets/cards/200720.png')">
             <img class="card_img" src="./assets/cards/200720.png"/>
-        </div>
-    </div>
-    <div class="card svs shs">
-        <div class="card_header">
-            <div class="card_title">200705</div>
-        </div>
-        <div class="card_body" style="position: relative;" onclick="open_gallery_vid('./assets/cards/200705.mp4')">
-            <svg class="card_video_svg">
-                <circle cx="50" cy="50" fill="#000" fill-opacity=".7" r="24"></circle>
-                <polygon points="46,43 46,57 60,50" fill="#eee" stroke="#eee" stroke-width="3" stroke-linejoin="round"></polygon>
-            </svg>
-            <video class="card_video" poster=assets/cards/200705.mp4 preload=metadata>
-                <source src="./assets/cards/200705.mp4" type="video/mp4">
-            </video>
         </div>
     </div>
 </div>
